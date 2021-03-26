@@ -10,6 +10,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -22,6 +23,7 @@ public class register_page extends AppCompatActivity implements View.OnClickList
     EditText editTextemail,editTextpassword,editTextFirstname,editTextLastname;
     ProgressBar progressbar;
     private FirebaseAuth mAuth;
+    TextView backtologin;
 
 
 
@@ -37,8 +39,20 @@ public class register_page extends AppCompatActivity implements View.OnClickList
         editTextLastname=(EditText)findViewById(R.id.lastname);
         progressbar=(ProgressBar)findViewById(R.id.progressBar);
         mAuth = FirebaseAuth.getInstance();
+        backtologin=(TextView) findViewById(R.id.backtologin);
+        backtologin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openloginactivity();
+            }
+        });
 
         findViewById(R.id.signupbutton).setOnClickListener(this);
+    }
+
+    private void openloginactivity() {
+        Intent intent=new Intent(this,login_activity.class);
+        startActivity(intent);
     }
 
     private void registerUser(){

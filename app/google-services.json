@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "957884905204",
+    "project_id": "dictionary-app-f7045",
+    "storage_bucket": "dictionary-app-f7045.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:957884905204:android:7a25f5ca74bd729930d0a1",
+        "android_client_info": {
+          "package_name": "com.garvitd.dictionaryapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "957884905204-hdaop43usgu15c4hf8247iif875ovqeo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNbI7OlbhH2x2Y5fNwahb7lSc9-xaXEoU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "957884905204-hdaop43usgu15c4hf8247iif875ovqeo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

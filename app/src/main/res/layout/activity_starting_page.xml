@@ -37,9 +37,11 @@
         android:textStyle="bold"
         app:backgroundTint="@color/black"
         app:iconPadding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/textView"
         app:layout_constraintStart_toStartOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.054"
         app:strokeColor="#1C1919" />
 
     <ImageView

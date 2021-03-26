@@ -9,7 +9,7 @@
     <include
         android:id="@+id/tool2"
         layout="@layout/toolbar"
-        android:layout_width="414dp"
+        android:layout_width="match_parent"
         android:layout_height="76dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -116,6 +116,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.499"
         android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/backtologin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Already have an account?"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/signupbutton"
+        app:layout_constraintStart_toStartOf="@+id/signupbutton"
+        app:layout_constraintTop_toTopOf="@+id/tool2"
+        app:layout_constraintVertical_bias="0.914" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
