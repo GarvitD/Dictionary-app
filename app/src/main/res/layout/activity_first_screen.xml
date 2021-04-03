@@ -8,29 +8,55 @@
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:background="@drawable/backgroundblue"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <!-- when we scroll down in an app and the toolbar moves along. this is done using appbar layout-->
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/tool1"
-            android:layout_width="330dp"
+            android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@drawable/backgroundblue"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-            app:title="Dictionary App">
+            app:title="Omxford Dictionary"
+            app:titleTextColor="@color/black">
+
+            <ImageButton
+                android:id="@+id/signoutBtn"
+                android:layout_width="80dp"
+                android:layout_height="65dp"
+                android:background="@drawable/logout1"
+                android:translationX="140dp"
+                android:translationY="-7dp" />
+
+
         </androidx.appcompat.widget.Toolbar>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/search_view"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="20dp"
+                android:background="@color/black"
+                android:clickable="true"
+                android:focusable="true" />
+
+        </LinearLayout>
 
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <ImageView
-        android:id="@+id/signoutBtn"
-        android:layout_width="88dp"
-        android:layout_height="56dp"
-        android:layout_gravity="right"
-        android:background="@drawable/backgroundblue"
-        app:srcCompat="@drawable/logout1" />
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
