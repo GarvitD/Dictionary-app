@@ -10,9 +10,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.provider.ContactsContract;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -37,6 +40,8 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
 public class login_activity extends AppCompatActivity {
+
+    CheckBox checkBox;
     Button loginButton;
     TextView signupbutton;
     FirebaseAuth mAuth;
@@ -66,6 +71,17 @@ public class login_activity extends AppCompatActivity {
         setContentView(R.layout.activity_login_activity);
         Toolbar toolbar=findViewById(R.id.tool);
         setSupportActionBar(toolbar);
+        checkBox=findViewById(R.id.checkBox);
+        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    editTextpassword.setTransformationMethod(null);
+                } else {
+                    editTextpassword.setTransformationMethod(new PasswordTransformationMethod());
+                }
+            }
+        });
         editTextemail=(EditText)findViewById(R.id.editTextEmail);
         editTextpassword=(EditText)findViewById(R.id.editTextPassword);
         progressBar=(ProgressBar)findViewById(R.id.progressBar2);

@@ -4,15 +4,6 @@
     android:layout_height="match_parent"
     android:gravity="center">
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_gravity="center"
-        android:layout_margin="40dp"
-        android:indeterminate="true"
-        android:indeterminateTint="#39DADF" />
-
 
 
 </LinearLayout>

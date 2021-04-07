@@ -1,4 +1,7 @@
-package com.garvitd.dictionaryapp;
+//This file is useless i created it earlier when i was using a database but now i am using an api.
+//I didn't delete so that there would no problems arising due to difference in files in my project and the github repository
+
+/*package com.garvitd.dictionaryapp;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -14,7 +17,7 @@ public class LoadDatabaseAsync  extends AsyncTask<Void, Void, Boolean> {
 
     private Context context;
     private AlertDialog alertDialog;
-    private DatabaseHelper mydbhelper;
+    private DatabaseHelper myDbhelper;
 
     public LoadDatabaseAsync(Context context) {
 
@@ -24,12 +27,14 @@ public class LoadDatabaseAsync  extends AsyncTask<Void, Void, Boolean> {
 
     @Override
     protected void onPreExecute() {
+        //TODO Auto-generated method stub
+
         super.onPreExecute();
 
         AlertDialog.Builder d = new AlertDialog.Builder(context, R.style.MyDialogTheme);
-        LayoutInflater layoutInflater = LayoutInflater.from(context);
-        View dialogView = layoutInflater.inflate(R.layout.alert_dialog, null);
-        d.setTitle("Loading Database");
+        LayoutInflater Inflater = LayoutInflater.from(context);
+        View dialogView = Inflater.inflate(R.layout.alert_dialog, null);
+        d.setTitle("Just a sec..");
         d.setView(dialogView);
         alertDialog = d.create();
         alertDialog.setCancelable(false);
@@ -37,16 +42,16 @@ public class LoadDatabaseAsync  extends AsyncTask<Void, Void, Boolean> {
     }
 
     @Override
-    protected Boolean doInBackground(Void... voids) {
-        mydbhelper = new DatabaseHelper(context);
+    protected Boolean doInBackground(Void... params) {
+        myDbhelper = new DatabaseHelper(context);
 
         try {
-            mydbhelper.createDatabase();
+            myDbhelper.createDatabase();
         } catch (IOException e) {
             throw new Error("Database was not Created");
         }
 
-        mydbhelper.close();
+        myDbhelper.close();
         return null;
     }
 
@@ -57,9 +62,9 @@ public class LoadDatabaseAsync  extends AsyncTask<Void, Void, Boolean> {
     }
 
     @Override
-    protected void onPostExecute(Boolean aBoolean) {
-        super.onPostExecute(aBoolean);
+    protected void onPostExecute(Boolean result) {
+        super.onPostExecute(result);
         alertDialog.dismiss();
-        word_search.openDatabase();
+        first_screen.openDatabase();
     }
-}
+}*/

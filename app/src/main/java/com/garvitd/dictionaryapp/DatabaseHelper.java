@@ -1,4 +1,7 @@
-package com.garvitd.dictionaryapp;
+//This file is useless i created it earlier when i was using a database but now i am using an api.
+//I didn't delete so that there would no problems arising due to difference in files in my project and the github repository
+
+/*package com.garvitd.dictionaryapp;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -13,18 +16,20 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
+
+
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     private String DB_PATH = null;
     private static String DB_NAME = "eng_dictionary.db";
     private SQLiteDatabase myDatabase;
-    private final Context context;
+    private final Context mycontext;
     
     public DatabaseHelper(Context context) {
         super(context, DB_NAME, null, 1);
-        this.context = context;
+        this.mycontext = context;
         this.DB_PATH = "/data/data/" + context.getPackageName() + "/" + "databases/";
-        Log.i("DB_PATH", DB_PATH);
+        Log.e("Path 1", DB_PATH);
     }
 
     public void createDatabase() throws IOException {
@@ -70,7 +75,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     private void copyDatabase() throws IOException {
 
-        InputStream myInput = context.getAssets().open(DB_NAME);
+        InputStream myInput = mycontext.getAssets().open(DB_NAME);
         String outFileName = DB_PATH + DB_NAME;
         OutputStream myOutput = new FileOutputStream(outFileName);
 
@@ -87,12 +92,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         myOutput.close();
         myInput.close();
 
+        Log.i("copyDatabase","Database Copied");
     }
+
+
+
+
+
+
 
     public void openDatabase() throws SQLException {
 
-        String path = DB_PATH + DB_NAME;
-        myDatabase = SQLiteDatabase.openDatabase(path, null, SQLiteDatabase.OPEN_READWRITE);
+        String mypath = DB_PATH + DB_NAME;
+        myDatabase = SQLiteDatabase.openDatabase(mypath, null, SQLiteDatabase.OPEN_READWRITE);
 
     }
 
@@ -119,7 +131,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         try {
 
             this.getReadableDatabase();
-            context.deleteDatabase(DB_NAME);
+            mycontext.deleteDatabase(DB_NAME);
             copyDatabase();
         } catch (IOException e) {
             e.printStackTrace();
@@ -129,17 +141,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public Cursor getMeaning(String text)
     {
+        SQLiteDatabase myDatabase= this.getReadableDatabase();
         Cursor c= myDatabase.rawQuery("SELECT en_definition,example FROM words WHERE en_word==UPPER('"+text+"')",null);
         return c;
     }
 
     public Cursor getSuggestions(String text)
     {
+        SQLiteDatabase myDatabase= this.getReadableDatabase();
         Cursor c= myDatabase.rawQuery("SELECT _id, en_word FROM words WHERE en_word LIKE '"+text+"%' LIMIT 40",null);
         return c;
     }
 
-    public void insertHistory(String text){
+    /*public void insertHistory(String text){
 
         myDatabase.execSQL("INSERT INTO history(word) VALUES (UPPER ('"+text+"'))");
 
@@ -156,4 +170,4 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         myDatabase.execSQL("DELETE  FROM history");
     }
 
-}
+}*/
