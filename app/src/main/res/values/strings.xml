@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Dictionary App</string>
+    <string name="facebook_app_id">484332252811825</string>
+    <string name="fb_login_protocol_scheme">fb484332252811825</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <string name="WordnikAPIKey">pqshlxdpzebipied89ys6l8zowj4m9gka4hucgtgisd43ptue</string>
 </resources>

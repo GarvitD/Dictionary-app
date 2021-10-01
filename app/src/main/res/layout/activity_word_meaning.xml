@@ -9,6 +9,7 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
+        app:titleTextAppearance="@style/MyTheme.MyActionBar.TitleTextStyle"
         android:layout_height="72dp"
         android:background="@drawable/backgroundblue"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -35,19 +36,20 @@
 
     <TextView
         android:id="@+id/wikipediaLink"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:autoLink="web"
-        android:linksClickable="true"
-        android:textAlignment="center"
+        android:layout_marginLeft="10dp"
+        android:clickable="false"
         android:text="TextView"
+        android:textAlignment="center"
+        android:textColor="@color/teal_200"
         android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/textView4"
-        app:layout_constraintHorizontal_bias="0.179"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/textView4"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:layout_constraintVertical_bias="0.26" />
+        app:layout_constraintVertical_bias="0.261" />
 
     <TextView
         android:id="@+id/textView6"
@@ -58,18 +60,19 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.157"
+        app:layout_constraintHorizontal_bias="0.184"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:layout_constraintVertical_bias="0.19" />
+        app:layout_constraintVertical_bias="0.477" />
 
     <TextView
         android:id="@+id/meaning"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text=""
-        android:layout_marginRight="5dp"
-        android:layout_marginLeft="5dp"
+        android:textColor="@color/teal_200"
+        android:layout_marginRight="19dp"
+        android:layout_marginLeft="19dp"
         android:textAlignment="center"
         android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -91,7 +94,52 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@android:drawable/ic_lock_silent_mode_off" />
+        app:srcCompat="@android:drawable/ic_lock_silent_mode_off"/>
 
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:elevation="10dp"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintVertical_bias="0.096">
+
+        <ImageView
+            android:id="@+id/imageForWord"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            />
+
+    </androidx.cardview.widget.CardView>
+
+    <ProgressBar
+        android:id="@+id/progressBarLoadCall"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/textView6"
+        app:layout_constraintEnd_toEndOf="@+id/cardView"
+        app:layout_constraintStart_toStartOf="@+id/cardView"
+        app:layout_constraintTop_toBottomOf="@+id/cardView"
+        android:visibility="visible"
+        android:indeterminateTint="@color/maincolor"/>
+
+    <CheckBox
+        android:id="@+id/saveWordCheckBox"
+        style="?android:attr/starStyle"
+        android:layout_width="60dp"
+        android:layout_height="?attr/actionBarSize"
+        android:buttonTint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/pronounce"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/toolbar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.006" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

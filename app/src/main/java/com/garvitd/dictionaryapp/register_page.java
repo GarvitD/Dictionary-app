@@ -20,7 +20,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 
 public class register_page extends AppCompatActivity implements View.OnClickListener {
-    EditText editTextemail,editTextpassword,editTextFirstname,editTextLastname;
+    EditText editTextemail,editTextpassword,editTextFirstname,editTextLastname,confpassword;
     ProgressBar progressbar;
     private FirebaseAuth mAuth;
     TextView backtologin;
@@ -32,11 +32,10 @@ public class register_page extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_page);
         Toolbar toolbar=findViewById(R.id.tool2);
-        setSupportActionBar(toolbar);
         editTextemail =(EditText) findViewById(R.id.emailAddress);
         editTextpassword=(EditText) findViewById(R.id.password);
         editTextFirstname=(EditText)findViewById(R.id.firstname);
-        editTextLastname=(EditText)findViewById(R.id.lastname);
+        confpassword=(EditText)findViewById(R.id.confpassword);
         progressbar=(ProgressBar)findViewById(R.id.progressBar);
         mAuth = FirebaseAuth.getInstance();
         backtologin=(TextView) findViewById(R.id.backtologin);
@@ -59,8 +58,15 @@ public class register_page extends AppCompatActivity implements View.OnClickList
         String email = editTextemail.getText().toString().trim();
         String password=editTextpassword.getText().toString().trim();
         String first=editTextFirstname.getText().toString().trim();
-        String last=editTextLastname.getText().toString().trim();
+        String confirmedpass = confpassword.getText().toString().trim();
 
+        if(password.equalsIgnoreCase(confirmedpass)){
+
+        } else {
+            confpassword.setError("Passwords do not match");
+            confpassword.requestFocus();
+            return;
+        }
 
         if(email.isEmpty()){
             editTextemail.setError("Please enter your email address");
@@ -80,11 +86,6 @@ public class register_page extends AppCompatActivity implements View.OnClickList
         if(first.isEmpty()){
             editTextFirstname.setError("Please enter your first name");
             editTextemail.requestFocus();
-            return;
-        }
-        if(last.isEmpty()){
-            editTextLastname.setError("Please enter your last name");
-            editTextLastname.requestFocus();
             return;
         }
         progressbar.setVisibility(View.VISIBLE);
@@ -107,7 +108,9 @@ public class register_page extends AppCompatActivity implements View.OnClickList
             }
         });
 
+
     }
+
 
     @Override
     public void onClick(View view) {

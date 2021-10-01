@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_myProfile"
+        android:icon="@drawable/ic_baseline_account_circle_24"
+        android:title="My Profile" />
+
+    <item
+        android:id="@+id/menu_logout"
+        android:icon="@drawable/ic_baseline_exit_to_app_24"
+        android:title="Logout"/>
+
+    <item
+        android:id="@+id/menu_recents"
+        android:icon="@drawable/history_icon"
+        android:title="Recents"/>
+</menu>

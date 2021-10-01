@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backgroundblue"
+    android:background="@drawable/background"
     tools:context=".starting_page">
 
     <TextView
@@ -21,28 +21,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.086" />
-
-    <Button
-        android:id="@+id/startbutton"
-        android:layout_width="255dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="440dp"
-        android:backgroundTint="#0B0B0B"
-        android:fontFamily="@font/actor"
-        android:shadowColor="#201D1D"
-        android:text="Get Started"
-        android:textAllCaps="false"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:backgroundTint="@color/black"
-        app:iconPadding="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/textView"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.054"
-        app:strokeColor="#1C1919" />
+        app:layout_constraintVertical_bias="0.024" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -53,22 +32,102 @@
         app:layout_constraintStart_toStartOf="@+id/textView"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.338"
-        app:srcCompat="@drawable/dictionary" />
+        app:srcCompat="@drawable/dictionary"
+        android:visibility="gone"/>
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/amiko_semibold"
-        android:text="A good vocabulary goes life long"
+        android:text="A good vocabulary                               goes life long."
+        android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintHorizontal_bias="0.515"
         app:layout_constraintStart_toStartOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.585" />
+        app:layout_constraintVertical_bias="0.153" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/googleSignIn"
+        android:layout_width="300dp"
+        android:layout_height="44dp"
+        android:background="@drawable/rounded_corners"
+        android:backgroundTint="@color/white"
+        android:drawableLeft="@drawable/google_logo"
+        android:elevation="100dp"
+        android:fontFamily="sans-serif"
+        android:paddingLeft="25dp"
+        android:text="     Sign in with Google"
+        android:textAlignment="textStart"
+        android:textAllCaps="false"
+        android:textColor="#2b2a2a"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.615" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/facebookSignIn"
+        android:layout_width="300dp"
+        android:layout_height="44dp"
+        android:background="@drawable/rounded_corners"
+        android:backgroundTint="#4267B2"
+        android:elevation="100dp"
+        android:text="     Sign in with Facebook"
+        android:textAlignment="textStart"
+        android:fontFamily="sans-serif"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:textSize="15dp"
+        android:drawableLeft="@drawable/facebook_icon"
+        android:paddingLeft="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/googleSignIn"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/googleSignIn"
+        app:layout_constraintTop_toBottomOf="@+id/googleSignIn"
+        app:layout_constraintVertical_bias="0.166" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/actor"
+        android:text="Already have an ID?"
+        android:textColor="#2b2a2a"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/googleSignIn"
+        app:layout_constraintVertical_bias="0.493" />
+
+    <TextView
+        android:id="@+id/signIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign in or Sign Up"
+        android:textColor="#2b2a2a"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/textView8"
+        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintStart_toStartOf="@+id/textView8"
+        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        app:layout_constraintVertical_bias="0.245" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

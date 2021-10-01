@@ -41,54 +41,24 @@ import com.google.firebase.auth.GoogleAuthProvider;
 
 public class login_activity extends AppCompatActivity {
 
-    CheckBox checkBox;
     Button loginButton;
     TextView signupbutton;
-    FirebaseAuth mAuth;
     EditText editTextemail,editTextpassword;
     ProgressBar progressBar;
-    private GoogleSignInClient mGoogleSignInClient;
-    private final static int RC_SIGN_IN=1;
-    SignInButton googlesignIn;
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-
-        FirebaseUser user = mAuth.getCurrentUser();
-        if(user!=null){
-            Intent intent = new Intent(getApplicationContext(),first_screen.class);
-            startActivity(intent);
-        }
-
-
-    }
+    FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_activity);
         Toolbar toolbar=findViewById(R.id.tool);
-        setSupportActionBar(toolbar);
-        checkBox=findViewById(R.id.checkBox);
-        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked){
-                    editTextpassword.setTransformationMethod(null);
-                } else {
-                    editTextpassword.setTransformationMethod(new PasswordTransformationMethod());
-                }
-            }
-        });
         editTextemail=(EditText)findViewById(R.id.editTextEmail);
         editTextpassword=(EditText)findViewById(R.id.editTextPassword);
         progressBar=(ProgressBar)findViewById(R.id.progressBar2);
         progressBar.setVisibility(View.GONE);
         signupbutton=(TextView) findViewById(R.id.upbutton);
         loginButton=(Button)findViewById(R.id.loginbutton);
-        googlesignIn= (SignInButton) findViewById(R.id.googleSignIn);
+        mAuth=FirebaseAuth.getInstance();
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -101,32 +71,9 @@ public class login_activity extends AppCompatActivity {
                 openSignupActivity();
             }
         });
-
-        mAuth = FirebaseAuth.getInstance();
-        createrequest();
     }
 
-    private void createrequest() {
-        GoogleSignInOptions gso = new GoogleSignInOptions
-                .Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.default_web_client_id))
-                .requestEmail()
-                .build();
 
-        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
-        googlesignIn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                signIn();
-            }
-        });
-
-    }
-
-    private void signIn() {
-        Intent signInIntent = mGoogleSignInClient.getSignInIntent();
-        startActivityForResult(signInIntent, RC_SIGN_IN);
-    }
 
     public void openSignupActivity(){
         Intent intent= new Intent(this,register_page.class);
@@ -170,49 +117,9 @@ public class login_activity extends AppCompatActivity {
         });
 
 
-    }
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
 
-
-        // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
-        if (requestCode == RC_SIGN_IN) {
-            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
-            try {
-                // Google Sign In was successful, authenticate with Firebase
-                GoogleSignInAccount account = task.getResult(ApiException.class);
-                firebaseAuthWithGoogle(account);
-            } catch (ApiException e) {
-                // Google Sign In failed, update UI appropriately
-                // ...
-                Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        }
     }
 
 
-    private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
 
-
-        AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
-        mAuth.signInWithCredential(credential)
-                .addOnCompleteListener(this, new OnCompleteListener() {
-                    @Override
-                    public void onComplete(@NonNull Task task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            Intent intent = new Intent(getApplicationContext(), first_screen.class);
-                            startActivity(intent);
-
-
-                        } else {
-                            Toast.makeText(login_activity.this, "An unexpected error occurred.Please try again or check your internet connection", Toast.LENGTH_SHORT).show();
-
-
-                        }
-                    }
-                });
-    }
 }

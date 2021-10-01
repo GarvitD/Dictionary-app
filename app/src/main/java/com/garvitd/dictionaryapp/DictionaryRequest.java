@@ -9,6 +9,7 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -27,7 +28,6 @@ public class DictionaryRequest extends AsyncTask <String, Integer, String> {
     @Override
     protected String doInBackground(String... params) {
 
-        //TODO: replace with your own app id and app key
         final String app_id = "3bfe5e32";
         final String app_key = "d9a38182fc62ee31307dfc1a436c20c5";
         try {
